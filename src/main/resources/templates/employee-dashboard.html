@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Dashboard - TrackSphere</title>
+</head>
+<body>
+    <h1>Welcome EMPLOYEE 🧑‍💼</h1>
+    <p>Hello <span th:text="${name}">Employee</span>!</p>
+
+    <hr>
+    <ul>
+        <li><a href="#">Submit Daily Task</a></li>
+        <li><a href="#">View Your Logs</a></li>
+    </ul>
+
+    <br>
+    <a th:href="@{/logout}">Logout</a>
+</body>
+</html>

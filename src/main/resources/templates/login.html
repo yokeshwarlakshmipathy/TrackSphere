@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login - TrackSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .error {
+            color: red;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="login-box">
+    <h2>Login to TrackSphere</h2>
+
+    <form th:action="@{/login}" method="post">
+    <label>Email</label>
+    <input type="email" name="username" required />
+
+    <label>Password</label>
+    <input type="password" name="password" required />
+
+    <button type="submit">Login</button>
+
+    <p th:if="${param.error}" style="color:red;">Invalid credentials</p>
+    <p th:if="${param.logout}" style="color:green;">You have been logged out</p>
+</form>
+
+</div>
+</body>
+</html>

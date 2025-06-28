@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register - TrackSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        /* Same styles as login - reuse everything */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e7e34;
+        }
+
+        .error {
+            color: red;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="register-box">
+    <h2>Register for TrackSphere</h2>
+
+    <form th:action="@{/register}" th:object="${employee}" method="post">
+
+        <label>Name</label>
+        <input type="text" th:field="*{name}" required/>
+
+        <label>Email</label>
+        <input type="email" th:field="*{email}" required/>
+
+        <label>Password</label>
+        <input type="password" th:field="*{password}" required/>
+
+        <label>Role</label>
+        <input type="text" th:field="*{role}" required placeholder="EMPLOYEE / ADMIN / MANAGER" />
+
+        <button type="submit">Register</button>
+
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+        <div class="link">
+            <p>Already have an account? <a th:href="@{/login}">Login here</a></p>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
+

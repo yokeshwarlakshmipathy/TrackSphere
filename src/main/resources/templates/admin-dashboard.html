@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard - TrackSphere</title>
+</head>
+<body>
+    <h1>Welcome ADMIN 🛡️</h1>
+    <p>Hello <span th:text="${name}">Admin</span>!</p>
+
+    <hr>
+    <ul>
+        <li><a href="#">Manage Users</a></li>
+        <li><a href="#">View All Logs</a></li>
+        <li><a href="#">System Settings</a></li>
+    </ul>
+
+    <br>
+    <a th:href="@{/logout}">Logout</a>
+</body>
+</html>
